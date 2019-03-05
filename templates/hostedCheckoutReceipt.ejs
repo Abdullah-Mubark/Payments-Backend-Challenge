@@ -1,0 +1,49 @@
+<% include ./partials/header %>
+    <div class="col-9 pl-4">
+        <h3>
+            <%= resbody.cause %>
+        </h3>
+        <div>
+            <%= resbody.message %>
+        </div>
+        <div class="container mt-4 ml-0">
+            <% if(!resbody.error){ %>
+                <div class="row">
+                    <div class="col">
+                        Order ID
+                    </div>
+                    <div class="col">
+                        <p>
+                            <%= resbody.resbody.id %>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Description
+                    </div>
+                    <div class="col">
+                        <p>
+                            <%= resbody.resbody.description %>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Amount
+                    </div>
+                    <div class="col">
+                        <p>
+                            <%= resbody.resbody.amount %>
+                                <%= resbody.resbody.currency %>
+                        </p>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    </div>
+    </div>
+    </body>
+
+    </html>

@@ -1,0 +1,20 @@
+
+            <% include ./partials/header %>
+            <div class="col-9 pl-4">
+                <h3>
+                    <%= apiOperation %> Operation</h3>
+                <p class="endpoint">
+                    <%= method %>
+                        <%= url %>
+                </p>
+                <h5>Payload</h5>
+                <pre><%= payload %></pre>
+                <h5>Response</h5>
+                <pre><%= resbody %></pre>
+            </div>
+            <!-- row -->
+        </div>
+    </div>
+</body>
+
+</html>

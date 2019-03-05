@@ -1,0 +1,52 @@
+<% include ./partials/header %>
+    <div class="col-9">
+        <h3>Error</h3>
+        <div class="container mt-4 ml-0">
+            <% if(cause != null){%>
+                <div class="row">
+                    <div class="col">Cause</div>
+                    <div class="col">
+                        <p>
+                            <%= cause %>
+                        </p>
+                    </div>
+                </div>
+                <%}%>
+
+                    <% if(explanation != null){ %>
+                        <div class="row">
+                            <div class="col">Explanation</div>
+                            <div class="col">
+                                <p>
+                                    <%= explanation %>
+                                </p>
+                            </div>
+                        </div>
+                        <% } %>
+                            <% if(field != null){ %>
+                                <div class="row">
+                                    <div class="col">Field</div>
+                                    <div class="col">
+                                        <p>
+                                            <%= field %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <% if(validationType != null){ %>
+                                        <div class="row">
+                                            <div class="col">Validation type</div>
+                                            <div class="col">
+                                                <p>
+                                                    <%= validationType %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <% } %>
+        </div>
+    </div>
+    </div>
+    </div>
+    </body>
+
+    </html>

@@ -1,0 +1,107 @@
+<% include ./partials/header %>
+
+    <div class="col-9">
+        <div class="row">
+            <div class="contents col-12">
+                <div class="col-md-12" id="paymentpage">
+                    <h3>Pay with NVP (name-value pair) protocol</h3>
+                    <div class="alert alert-warning" role="alert">
+                        <p>
+                            <strong>NOTE:</strong> You can also do an authorization via NVP, depending on your merchant settings.</p>
+                        <p>In order to run the Payment API operation, please make sure the merchant is configured to "Purchase"
+                            payment mode.</p>
+                        <p>You can find test cards
+                            <a href="<%= baseUrl %>/api/documentation/integrationGuidelines/supportedFeatures/testAndGoLive.html">here</a>.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h6>Payment details</h6>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="card-number">Card number:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="card-number" class="form-control input-md" value="" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="expiry-month">Expiry month:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="expiry-month" class="form-control input-md" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="expiry-year">Expiry year:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="expiry-year" class="form-control input-md" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="security-code">Security code:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="security-code" class="form-control input-md" value="" readonly/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <h6>Order details</h6>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="order-id">Order ID:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="order-id" class="form-control input-md" value="<%= orderId %>" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="order-amount">Order amount:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="order-amount" class="form-control input-md" value="<%= orderAmount %>" maxlength="14" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="order-currency">Order currency:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="order-currency" class="form-control input-md" value="<%= orderCurrency %>" maxlength="3" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="order-description">Description:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="order-description" class="form-control input-md" value="<%= orderDescription %>" maxlength="127" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="transaction-id">Transaction ID:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="transaction-id" class="form-control input-md" value="<%= transactionId %>" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button type="submit" class="mt-4 btn btn-primary" id="payButton" onclick="pay();">Pay</button>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+    </div>
+    </div>
+    </div>
+    <script src="<%= baseUrl %>/form/version/<%= apiVersion %>/merchant/<%= merchant %>/session.js"></script>
+    <script type="text/javascript">
+        var NodeSample = {
+            operation: function () {
+                return "PAY";
+            },
+            endpoint: function () {
+                return "/process/PayThroughNVP";
+            },
+            protocol: "NVP",
+            secureIdResponseUrl: function () {
+                return null;
+            }
+        };
+    </script>
+    <script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/hostedSession.js"></script>
+    </body>
+
+    </html>

@@ -1,0 +1,37 @@
+{
+  "name": "gateway-nodejs-sample-code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "NODE_DEBUG=true server.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dump": "node --max-old-space-size=4076 scripts/config/server.js",
+    "qat": "",
+    "prod": "",
+    "test": "jasmine"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bootstrap": "*",
+    "jsdom": "*",
+    "client-certificate-auth": "^0.3.0",
+    "compression": "^1.6.2",
+    "cookie-session": "^2.0.0-beta.3",
+    "ejs": "^1.0.0",
+    "express": "^4.14.0",
+    "express-session": "^1.15.6",
+    "https-agent": "^1.0.0",
+    "jquery": "~3.2.1",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0",
+    "request-debug": "^0.2.0",
+    "restler": "^3.4.0"
+  },
+  "devDependencies": {
+    "jasmine": "^3.1.0"
+  }
+}

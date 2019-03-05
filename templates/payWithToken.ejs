@@ -1,0 +1,100 @@
+<% include ./partials/header %>
+    <div class="col-9">
+        <div class="row">
+            <div class="contents col-12">
+                <div class="col-md-12">
+                    <h3>Pay with Token</h3>
+                    <div class="alert alert-warning" role="alert">
+                        <p>This example demonstrates how to tokenize card data using a system-generated token. You may also
+                            provide your own token. For full details, see the
+                            <a href="<%= baseUrl %>/api/documentation/integrationGuidelines/supportedFeatures/pickAdditionalFunctionality/tokenization/tokenization.html'}"
+                                target="_blank">API documentation</a>.</p>
+                        <p>Your merchant account must also be configured to accept tokens before performing this operation.</p>
+                        <p>You can find test cards
+                            <a href="<%= baseUrl %>/api/documentation/integrationGuidelines/supportedFeatures/testAndGoLive.html">here</a>.</p>
+                    </div>
+                    <div class="mb-4">
+                        <h6>Payment details</h6>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="card-number">Card number:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="card-number" class="form-control input-md" value="" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="expiry-month">Expiry month:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="expiry-month" class="form-control input-md" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="expiry-year">Expiry year:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="expiry-year" class="form-control input-md" value="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="security-code">Security code:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="security-code" class="form-control input-md" value="" readonly/>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <h6>Order details</h6>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="order-id">Order ID:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="order-id" class="form-control input-md" value="<%= orderId %>" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="order-amount">Order amount:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="order-amount" class="form-control input-md" value="<%= orderAmount %>" maxlength="14" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="order-currency">Order currency:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="order-currency" class="form-control input-md" value="<%= orderCurrency %>" maxlength="3" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="order-description">Description:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="order-description" class="form-control input-md" value="<%= orderDescription %>" maxlength="127" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-7 control-label" for="transaction-id">Transaction ID:</label>
+                                <div class="col-md-7">
+                                    <input type="text" id="transaction-id" class="form-control input-md" value="<%= transactionId %>" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                     <button class="btn btn-primary" id="payButton" onclick="pay();">Pay With Token</button>
+                </div>
+                <script src="<%= baseUrl %>/form/version/<%= apiVersion %>/merchant/<%= merchant %>/session.js"></script>
+                <script type="text/javascript">
+                    var NodeSample = {
+                        operation: function () {
+                            return null;
+                        },
+                        endpoint: function () {
+                            return "/process/tokenize";
+                        },
+                        secureIdResponseUrl: function () {
+                            return null;
+                        }
+                    };
+                </script>
+                <script src="/scripts/jquery.min.js"></script>
+                <script src="/scripts/hostedSession.js"></script>
+                </body>
+
+                </html>

@@ -1,0 +1,37 @@
+<% include ./partials/header %>
+    <div class="col-9">
+        <div class="row">
+            <form action="/process/retrieve" class="col-12 form-horizontal" method="post">
+                <h3>Retrieve Order</h3>
+                <div class="alert alert-warning" role="alert">
+                    A valid order ID are needed to retrieve an order.
+                    <br/>
+                    <br/> To get these values, run the Pay process, then enter the values from the response.
+                </div>
+                <fieldset>
+                    <input type="hidden" value="RETRIEVE_ORDER" name="apiOperation" />
+                    <input type="hidden" value="GET" name="apiMethod" />
+                    <div class="form-group">
+                        <label class="col-md-7 control-label" for="order-id">Order ID</label>
+                        <div class="col-md-7">
+                            <input id="order-id" name="orderId" type="text" placeholder="[ORDER ID FROM EXISTING TRANSACTION]" class="form-control input-md"
+                                required="" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-7 control-label" for="process"></label>
+                        <div class="col-md-7">
+                            <button id="process" name="process" class="btn btn-primary">Retrieve Order</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <!-- row -->
+    </div>
+    </div>
+    </div>
+    </body>
+
+    </html>

@@ -1,0 +1,39 @@
+<% include ./partials/header %>
+    <div class="col-9 pl-4">
+        <h3>
+            <%= cause %>
+        </h3>
+        <div>
+            <%= message %>
+        </div>
+        <div class="container mt-4 ml-0">
+            <% if(! error){ %>
+                <div class="row">
+                    <div class="col">
+                        Order ID
+                    </div>
+                    <div class="col">
+                        <p>
+                            <%= orderId %>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Amount
+                    </div>
+                    <div class="col">
+                        <p>
+                            <%= orderAmount %>
+                                <%= orderCurrency %>
+                        </p>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    </div>
+    </div>
+    </body>
+
+    </html>

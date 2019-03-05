@@ -1,0 +1,43 @@
+<% include ./partials/header %>
+    <div class="col-9">
+        <div class="row">
+            <form action="/process/void" class="col-12 form-horizontal" method="post">
+                <h3>Void</h3>
+                <div class="alert alert-warning" role="alert">
+                    This API operation is typically not a browser initiated action. However, we are calling this action from browser only as
+                    a reference to get an idea of how it can be done through your application.
+                </div>
+                <fieldset>
+                    <input type="hidden" value="<%= transctionId %>" name="transactionId" />
+                    <input type="hidden" value="VOID" name="apiOperation" />
+                    <input type="hidden" value="PUT" name="apiMethod" />
+                    <div class="form-group">
+                        <label class="col-md-7 control-label" for="order-id">Order ID</label>
+                        <div class="col-md-7">
+                            <input id="order-id" name="orderId" type="text" placeholder="[ORDER ID FROM EXISTING TRANSACTION]" class="form-control input-md"
+                                required="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-7 control-label" for="target-transaction-id">Target Transaction ID</label>
+                        <div class="col-md-7">
+                            <input id="target-transaction-id" name="targetTransactionId" type="text" placeholder="[TRANSACTION ID FROM EXISTING TRANSACTION]"
+                                class="form-control input-md" required="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-7 control-label" for="process"></label>
+                        <div class="col-md-7">
+                            <button id="process" name="process" class="btn btn-primary">Process Void</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <!-- row -->
+    </div>
+    </div>
+    </div>
+    </body>
+
+    </html>

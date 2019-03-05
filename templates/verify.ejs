@@ -1,0 +1,98 @@
+<% include ./partials/header %>
+    <div class="col-9">
+        <div class="row">
+            <div class="contents col-12">
+                <div class="col-md-12" id="paymentpage">
+                    <h3>Verify</h3>
+                    <div class="alert alert-warning" role="alert">
+                        <p>You can find test cards
+                            <a href="<%= baseUrl %>/api/documentation/integrationGuidelines/supportedFeatures/testAndGoLive.html">here</a>.</p>
+                    </div>
+                    <h6>Payment details</h6>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="card-number">Card number:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="card-number" class="form-control input-md" value="" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="expiry-month">Expiry month:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="expiry-month" class="form-control input-md" value="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="expiry-year">Expiry year:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="expiry-year" class="form-control input-md" value="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="security-code">Security code:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="security-code" class="form-control input-md" value="" readonly/>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <h6>Order details</h6>
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="order-id">Order ID:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="order-id" class="form-control input-md" value="<%= orderId %>" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="order-amount">Order Amount:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="order-amount" class="form-control input-md" value="<%= orderAmount %>" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="order-currency">Order currency:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="order-currency" class="form-control input-md" value="<%= orderCurrency %>" maxlength="3" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-7 control-label" for="transaction-id">Transaction ID:</label>
+                            <div class="col-md-7">
+                                <input type="text" id="transaction-id" class="form-control input-md" value="<%= transactionId %>" />
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <button class="btn btn-primary" id="payButton" onclick="pay();">Verify</button>
+            </div>
+        </div>
+    </div>
+    <!-- row -->
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="<%= baseUrl %>/form/version/<%= apiVersion %>/merchant/<%= merchant %>/session.js"></script>
+    <script type="text/javascript">
+        var NodeSample = {
+            operation: function () {
+                return "VERIFY";
+            },
+            endpoint: function () {
+                return "/process/verify";
+            },
+            params: function () {
+                return "";
+            },
+            secureIdResponseUrl: function () {
+                return null;
+            }
+        };
+    </script>
+    <script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/hostedSession.js"></script>
+    </body>
+
+    </html>

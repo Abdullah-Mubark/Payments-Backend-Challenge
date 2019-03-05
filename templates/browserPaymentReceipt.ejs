@@ -1,0 +1,41 @@
+<% include ./partials/header %>
+
+    <div class="col-9 pl-4">
+        <h3>
+            Payment complete!
+        </h3>
+        <div>
+            Your payment was APPROVED
+        </div>
+        <div class="container mt-4 ml-0">
+            <% if(!resbody.error){ %>
+                <div class="row">
+                    <div class="col">
+                        Order ID
+                    </div>
+                    <div class="col">
+                        <p>
+                            <%= resbody.message.order.id %>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Amount
+                    </div>
+                    <div class="col">
+                        <p>
+                            <%= resbody.message.order.amount %>
+                                <%= resbody.message.order.currency %>
+                        </p>
+                    </div>
+
+                </div>
+                <% } %>
+        </div>
+    </div>
+    </div>
+    </div>
+    </body>
+
+    </html>
