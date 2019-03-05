@@ -1,4 +1,5 @@
 //Dependencies
+require('dotenv').config();
 var compression = require('compression');
 var express = require('express');
 var bp = require('body-parser');

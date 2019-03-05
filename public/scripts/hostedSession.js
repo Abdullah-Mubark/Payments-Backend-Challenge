@@ -8,10 +8,10 @@ PaymentSession.configure({
     fields: {
         // ATTACH HOSTED FIELDS TO YOUR PAYMENT PAGE FOR A CREDIT CARD
         card: {
-            number: "#card-number",
-            securityCode: "#security-code",
-            expiryMonth: "#expiry-month",
-            expiryYear: "#expiry-year"
+            number: "5123450000000008",
+            securityCode: "100",
+            expiryMonth: "05",
+            expiryYear: "21"
         }
     },
     //SPECIFY YOUR MITIGATION OPTION HERE
