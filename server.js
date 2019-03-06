@@ -1,5 +1,7 @@
+//Enviromental variables
+var env = require('dotenv').config();
+process.env.USERNAME =  env.parsed.USERNAME; // Without this username will be set as the pc user name
 //Dependencies
-require('dotenv').config();
 var compression = require('compression');
 var express = require('express');
 var bp = require('body-parser');
