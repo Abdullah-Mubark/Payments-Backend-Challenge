@@ -1,6 +1,6 @@
 if (self === top) {
     var antiClickjack = document.getElementById("antiClickjack");
-    if (antiClickjack) antiClickjack.parentNode.removeChild(antiClickjack);
+    antiClickjack.parentNode.removeChild(antiClickjack);
 } else {
     top.location = self.location;
 }
@@ -8,10 +8,10 @@ PaymentSession.configure({
     fields: {
         // ATTACH HOSTED FIELDS TO YOUR PAYMENT PAGE FOR A CREDIT CARD
         card: {
-            number: "5123450000000008",
-            securityCode: "100",
-            expiryMonth: "05",
-            expiryYear: "21"
+        	number: "#card-number",
+        	securityCode: "#security-code",
+        	expiryMonth: "#expiry-month",
+        	expiryYear: "#expiry-year"
         }
     },
     //SPECIFY YOUR MITIGATION OPTION HERE
@@ -19,9 +19,15 @@ PaymentSession.configure({
     callbacks: {
         initialized: function (response) {
             // HANDLE INITIALIZATION RESPONSE
+            if(response.status == "ok"){
+                console.log("Payment session initilization sucessed")
+            }else{
+                console.log("Payment session initilization failed with error message: " + response.message)
+            }
         },
         formSessionUpdate: function (response) {
             // HANDLE RESPONSE FOR UPDATE SESSION
+            console.log("Form session update: \n" + JSON.stringify(response));
             if (response.status) {
                 if ("ok" == response.status) {
                     //check if the security code was provided by the user
@@ -76,6 +82,5 @@ PaymentSession.configure({
 });
 function pay() {
     // UPDATE THE SESSION WITH THE INPUT FROM HOSTED FIELDS
-    console.log(PaymentSession);
     PaymentSession.updateSessionFromForm('card');
 }
